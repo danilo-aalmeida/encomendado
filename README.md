@@ -1,5 +1,7 @@
 # Encomendado
 > Trabalho Acadêmico da disciplina de Programação Orientada a Objetos 3.
+> 
+> [FEAN - Faculdade Energia de Administração e Negócios.](https://www.fean.com.br)
 
 Descrição do que é o projeto e o que ele faz
 
@@ -14,13 +16,15 @@ Ferramentas utilizadas para auxiliar no design:
 * Figma (Utilizado para a prototipação de telas)
     
     * Componentes - [Creative Tim](https://demos.creative-tim.com/material-kit-figma/presentation.html).
+    * Componentes - [Adrian Stefan](https://dribbble.com/shots/7140626-Figma-Admin-Template-Dashboard).
     
-    * Imagens:
-        * Background: 
-            * Tela de Login - [Freepik](https://www.freepik.com/free-photos-vectors/man).
-            * Tela de Cadastro - [Freepik](https://br.freepik.com/fotos-vetores-gratis/pessoas).
-            * Tela Recuperar Senha - [Freepik](https://br.freepik.com/fotos-vetores-gratis/camera).
-
+    
+* Imagens:
+    * Background: 
+        * Tela de Login - [Freepik](https://www.freepik.com/free-photos-vectors/man).
+        * Tela de Cadastro - [Freepik](https://br.freepik.com/fotos-vetores-gratis/pessoas).
+        * Tela Recuperar Senha - [Freepik](https://br.freepik.com/fotos-vetores-gratis/camera).
+        * Tela Principal - [Freepik](https://br.freepik.com/fotos-vetores-gratis/homem).
 
 
 [npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
