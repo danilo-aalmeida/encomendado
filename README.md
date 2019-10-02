@@ -3,7 +3,12 @@
 > 
 > [FEAN - Faculdade Energia de Administração e Negócios.](https://www.fean.com.br)
 
-Descrição do que é o projeto e o que ele faz
+### Projeto:
+Você trabalha em uma empresa de desenvolvimento de software que recebeu a seguinte demanda.
+Um cliente que costuma realizar muitas compras online para economizar tempo, gasolina e frete está enfrentando dificuldades para identificar o status de entrega das suas aquisições online. Este cliente espera poder visualizar o status de todas as suas compras de forma centralizada a partir dos códigos de rastreio dos Correios. Uma das premissas do projeto é que seja utilizada a API do postmon dos CORREIOS. 
+[PostmonAPI](https://github.com/PostmonAPI/correios.postmon.com.br).
+O projeto consiste no desenvolvimento de todas as fases desde definição de escopo, planejamento de tempo, arquitetura do projeto, até a entrega de cada etapa.
+
 
 [![Build Status][build-image]][build-url]
 [![NPM Version][npm-image]][npm-url]
