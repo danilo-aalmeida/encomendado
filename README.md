@@ -31,6 +31,34 @@ Ferramentas utilizadas para auxiliar no design:
         * Tela Recuperar Senha - [Freepik](https://br.freepik.com/fotos-vetores-gratis/camera).
         * Tela Principal - [Freepik](https://br.freepik.com/fotos-vetores-gratis/homem).
 
+## Dependências
+### Front-end
+
+* [Node.js 10.16.3](https://nodejs.org/en/download/).
+
+* [Vue.js](https://vuejs.org).
+
+    `$ npm install vue`
+
+    `$ vue create my-app`
+
+    `$ cd my-app`
+
+* [Vuetify](https://vuetifyjs.com).
+    
+    `$ vue add vuetify`
+
+* [Vue Router](https://router.vuejs.org).
+
+    `$ npm install vue-router`
+
+### Back-end
+
+* [Springboot](https://github.com/in28minutes/spring-boot-examples).
+
+    `$ git clone https://github.com/in28minutes/spring-boot-examples.git`
+
+_Utilizamos nesse projeto o [Springboot 2 rest service basic](https://github.com/in28minutes/spring-boot-examples/tree/master/spring-boot-2-rest-service-basic)._
 
 [npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/datadog-metrics
