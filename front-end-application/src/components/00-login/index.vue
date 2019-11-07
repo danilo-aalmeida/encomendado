@@ -1,9 +1,9 @@
 <template>
-    <v-container>
-        <v-layout>
+    <v-layout>
+        <div class="container">
             <h3>Tela de Login</h3>
-        </v-layout>     
-    </v-container>
+        </div>
+    </v-layout>
 </template>
 
 <script>
@@ -14,3 +14,11 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+    .container{
+        background-image: url('../../assets/background-login.jpg');
+        background-size: cover;
+    }
+
+</style>

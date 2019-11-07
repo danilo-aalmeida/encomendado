@@ -18,6 +18,8 @@ const router = new Router({
             component: Cadastro
         },
 
-    ]}
+    ],
+    mode: 'history'
+}
 )
 export default router;
