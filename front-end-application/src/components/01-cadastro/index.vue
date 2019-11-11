@@ -1,8 +1,8 @@
 <template>
     <v-container>
-        <v-layout>
+        <div class="conteudo">
             <h3>Tela de Cadastro</h3>
-        </v-layout>     
+        </div>
     </v-container>
 </template>
 
@@ -14,3 +14,11 @@ export default {
     }     
 }
 </script>
+
+<style lang="scss">
+    .conteudo{
+        background-image: url('../../assets/background-cadastro.jpg');
+        background-size: cover;
+    }
+
+</style>

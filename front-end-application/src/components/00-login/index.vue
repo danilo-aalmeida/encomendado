@@ -1,24 +1,26 @@
 <template>
-    <v-layout>
-        <div class="container">
-            <h3>Tela de Login</h3>
-        </div>
-    </v-layout>
+  <div class="ronaldo">
+    <v-container>
+      <div class="conteudo">
+        <v-card>
+            
+        </v-card>
+      </div>
+    </v-container>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'Login',
-    data(){
-        
-    }
-}
+  name: "Login",
+  data() {}
+};
 </script>
 
 <style lang="scss">
-    .container{
-        background-image: url('../../assets/background-login.jpg');
-        background-size: cover;
+    .ronaldo {
+    background-image: url("../../assets/background-login.jpg");
+    background-size: cover;
     }
 
 </style>

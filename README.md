@@ -52,6 +52,8 @@ Ferramentas utilizadas para auxiliar no design:
 
     `$ npm install vue-router`
 
+`$ npm run serve`
+
 ### Back-end
 
 * [Springboot](https://github.com/in28minutes/spring-boot-examples).
