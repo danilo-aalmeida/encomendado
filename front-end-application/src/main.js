@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './plugins/router';
 import vuetify from './plugins/vuetify';
 import Vuetify from 'vuetify';
+// import { mdiLinkedinBox } from '@mdi/js';
 
 Vue.config.productionTip = false;
 Vue.router = router;
