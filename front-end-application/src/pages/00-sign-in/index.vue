@@ -1,76 +1,63 @@
 <template>
   <div id="sign-in">
-    <v-layout>
-      <v-flex
-        xs10
-        offset-xs1
-        sm6
-        offset-sm3
-        md6
-        offset-md3
-        lg4
-        offset-ld4
-        ll2
-        offset-ll5
-      >
-        <v-card id="card-sign-in">
-          <v-card-title>
-            <div>
-              <h3>Login</h3>
-            </div>
-          </v-card-title>
-          <v-form
-            id="form"
-            ref="form"
-            v-model="valid"
-            @keyup.native.enter="submit"
-            lazy-validation
-          >
-            <v-text-field
-              v-model="user.email"
-              :rules="rules.email"
-              label="E-mail"
-              prepend-icon="mdi-email"
-              required
-            ></v-text-field>
-            <v-text-field
-              v-model="user.password"
-              :append-icon="
-                invisibility ? 'mdi-eye-off-outline' : 'mdi-eye-outline'
-              "
-              @click:append="() => (invisibility = !invisibility)"
-              :type="invisibility ? 'password' : 'text'"
-              :rules="rules.password"
-              label="Senha"
-              prepend-icon="mdi-lock-outline"
-              required
-            ></v-text-field>
-          </v-form>
-          <v-card-actions>
-            <v-row>
-              <v-col>
-                <!-- <v-btn @click="submit" class="sign-in" outlined>Entrar</v-btn> -->
-                <v-btn :to="homeAction" class="sign-in" outlined>Entrar</v-btn>
-              </v-col>
-              <v-col>
-                <v-btn :to="signUpAction" class="register" outlined
-                  >Cadastrar-se</v-btn
-                >
-              </v-col>
-            </v-row>
-            <v-row>
-              <router-link :to="recoverAction" class="forgot-password">Esqueci a senha</router-link>
-            </v-row>
-          </v-card-actions>
-          <v-snackbar :timeout="6000" :bottom="true" v-model="snackbar">
-            Usuário ou senha incorretos!
-            <v-btn small color="error" @click.native="snackbar = false"
-              >Fechar</v-btn
+      <v-card id="card-sign-in">
+        <v-card-title>
+          <div>
+            <h3>Login</h3>
+          </div>
+        </v-card-title>
+        <v-form
+          id="form"
+          ref="form"
+          v-model="valid"
+          @keyup.native.enter="submit"
+          lazy-validation
+        >
+          <v-text-field
+            v-model="user.email"
+            :rules="rules.email"
+            label="E-mail"
+            prepend-icon="mdi-email"
+            required
+          ></v-text-field>
+          <v-text-field
+            v-model="user.password"
+            :append-icon="
+              invisibility ? 'mdi-eye-off-outline' : 'mdi-eye-outline'
+            "
+            @click:append="() => (invisibility = !invisibility)"
+            :type="invisibility ? 'password' : 'text'"
+            :rules="rules.password"
+            label="Senha"
+            prepend-icon="mdi-lock-outline"
+            required
+          ></v-text-field>
+        </v-form>
+        <v-card-actions>
+          <v-row>
+            <v-col>
+              <!-- <v-btn @click="submit" class="sign-in" outlined>Entrar</v-btn> -->
+              <v-btn :to="homeAction" class="sign-in" outlined>Entrar</v-btn>
+            </v-col>
+            <v-col>
+              <v-btn :to="signUpAction" class="register" outlined
+                >Cadastrar-se</v-btn
+              >
+            </v-col>
+          </v-row>
+          <v-row>
+            <router-link :to="recoverAction" class="forgot-password"
+              >Esqueci a senha</router-link
             >
-          </v-snackbar>
-        </v-card>
-      </v-flex>
-    </v-layout>
+          </v-row>
+        </v-card-actions>
+        <v-snackbar :timeout="6000" :bottom="true" v-model="snackbar">
+          Usuário ou senha incorretos!
+          <v-btn small color="error" @click.native="snackbar = false"
+            >Fechar</v-btn
+          >
+        </v-snackbar>
+      </v-card>
   </div>
 </template>
 
@@ -95,8 +82,8 @@ export default {
         password: [v => !!v || "Senha é obrigatória!"]
       },
       signUpAction: "/sign-up",
-      recoverAction: '/recover-password',
-      homeAction: '/home',
+      recoverAction: "/recover-password",
+      homeAction: "/home"
     };
   },
   methods: {

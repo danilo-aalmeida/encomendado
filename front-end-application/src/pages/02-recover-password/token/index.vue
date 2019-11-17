@@ -1,81 +1,66 @@
 <template>
   <div id="recover-password">
-    <v-layout>
-      <v-flex
-        xs10
-        offset-xs1
-        sm6
-        offset-sm3
-        md6
-        offset-md3
-        lg4
-        offset-ld4
-        ll2
-        offset-ll5
+    <v-card id="card-recover-password">
+      <v-card-title>
+        <div>
+          <h3>
+            Recuperar Senha
+          </h3>
+        </div>
+      </v-card-title>
+      <v-form
+        id="form"
+        ref="form"
+        v-model="valid"
+        @keyup.native.enter="submit"
+        lazy-validation
       >
-        <v-card id="card-recover-password">
-          <v-card-title>
-            <div>
-              <h3>
-                Recuperar Senha
-              </h3>
-            </div>
-          </v-card-title>
-          <v-form
-            id="form"
-            ref="form"
-            v-model="valid"
-            @keyup.native.enter="submit"
-            lazy-validation
-          >
-            <v-text-field
-              v-model="user.email"
-              :rules="rules.email"
-              label="E-mail"
-              prepend-icon="mdi-email"
-              required
+        <v-text-field
+          v-model="user.email"
+          :rules="rules.email"
+          label="E-mail"
+          prepend-icon="mdi-email"
+          required
+        >
+        </v-text-field>
+        <v-text-field
+          v-model="user.password"
+          :type="'password'"
+          :rules="rules.password"
+          label="Nova Senha"
+          prepend-icon="mdi-lock-outline"
+          required
+        ></v-text-field>
+        <v-text-field
+          v-model="passwordConfirmation"
+          :type="'password'"
+          :rules="rules.password"
+          label="Confirme sua Nova Senha"
+          prepend-icon="mdi-shield-lock-outline"
+          required
+        ></v-text-field>
+      </v-form>
+      <v-card-actions>
+        <v-row>
+          <v-col>
+            <v-btn @click="submit" class="recover-password" outlined
+              >Confirmar</v-btn
             >
-            </v-text-field>
-            <v-text-field
-              v-model="user.password"
-              :type="'password'"
-              :rules="rules.password"
-              label="Nova Senha"
-              prepend-icon="mdi-lock-outline"
-              required
-            ></v-text-field>
-            <v-text-field
-              v-model="passwordConfirmation"
-              :type="'password'"
-              :rules="rules.password"
-              label="Confirme sua Nova Senha"
-              prepend-icon="mdi-shield-lock-outline"
-              required
-            ></v-text-field>
-          </v-form>
-          <v-card-actions>
-            <v-row>
-              <v-col>
-                <v-btn @click="submit" class="recover-password" outlined
-                  >Confirmar</v-btn
-                >
-              </v-col>
-              <v-col>
-                <v-btn :to="abortAction" class="abort-recover" outlined
-                  >Cancelar</v-btn
-                >
-              </v-col>
-            </v-row>
-          </v-card-actions>
-          <v-snackbar :timeout="6000" :bottom="true" v-model="snackbar">
-            Email não cadastrado!
-            <v-btn small color="error" @click.native="snackbar = false"
-              >Fechar</v-btn
+          </v-col>
+          <v-col>
+            <v-btn :to="abortAction" class="abort-recover" outlined
+              >Cancelar</v-btn
             >
-          </v-snackbar>
-        </v-card>
-      </v-flex>
-    </v-layout>
+          </v-col>
+        </v-row>
+      </v-card-actions>
+      <v-snackbar :timeout="6000" :bottom="true" v-model="snackbar">
+        Email não cadastrado!
+        <v-btn small color="error" @click.native="snackbar = false"
+          >Fechar</v-btn
+        >
+      </v-snackbar>
+    </v-card>
   </div>
 </template>
 
