@@ -4,6 +4,7 @@ import SignIn from "../pages/00-sign-in/";
 import SignUp from "../pages/01-sign-up/";
 import RecoverPassword from "../pages/02-recover-password/";
 import RecoverPassword2 from "../pages/02-recover-password/token/";
+import Home from "../pages/03-home/";
 
 Vue.use(Router);
 
@@ -30,6 +31,12 @@ const router = new Router({
       path: '/recover-password/2',
       name: "Recover-Password-2",
       component: RecoverPassword2
+    },
+    {
+      // path: '/recover-password/:token',
+      path: '/home',
+      name: "Home",
+      component: Home
     },
   ]
 });

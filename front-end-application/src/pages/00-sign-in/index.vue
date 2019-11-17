@@ -49,7 +49,8 @@
           <v-card-actions>
             <v-row>
               <v-col>
-                <v-btn @click="submit" class="sign-in" outlined>Entrar</v-btn>
+                <!-- <v-btn @click="submit" class="sign-in" outlined>Entrar</v-btn> -->
+                <v-btn :to="homeAction" class="sign-in" outlined>Entrar</v-btn>
               </v-col>
               <v-col>
                 <v-btn :to="signUpAction" class="register" outlined
@@ -95,6 +96,7 @@ export default {
       },
       signUpAction: "/sign-up",
       recoverAction: '/recover-password',
+      homeAction: '/home',
     };
   },
   methods: {
@@ -143,6 +145,7 @@ export default {
   width: 400px;
   height: 150px;
   margin: auto;
+  margin-bottom: 50px;
 
   background: linear-gradient(90deg, #006ea8 0%, #192c40 100%);
   box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.12), 0px 5px 15px rgba(0, 0, 0, 0.5);

@@ -99,7 +99,9 @@
           </v-card-actions>
           <v-snackbar :timeout="6000" :bottom="true" v-model="snackbar">
             {{ text }}
-            <v-btn small color="error" @click.native="snackbar = false">Fechar</v-btn>
+            <v-btn small color="error" @click.native="snackbar = false"
+              >Fechar</v-btn
+            >
           </v-snackbar>
         </v-card>
       </v-flex>
@@ -185,7 +187,7 @@ export default {
 
 .v-card {
   width: 750px;
-  height: 600px;
+  height: 100%;
   max-width: none;
 }
 
@@ -203,6 +205,7 @@ export default {
   width: 650px;
   height: 150px;
   margin: auto;
+  margin-bottom: 50px;
 
   background: linear-gradient(90deg, #006ea8 0%, #192c40 100%);
   box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.12), 0px 5px 15px rgba(0, 0, 0, 0.5);

@@ -36,12 +36,28 @@
               required
             >
             </v-text-field>
+            <v-text-field
+              v-model="user.password"
+              :type="'password'"
+              :rules="rules.password"
+              label="Nova Senha"
+              prepend-icon="mdi-lock-outline"
+              required
+            ></v-text-field>
+            <v-text-field
+              v-model="passwordConfirmation"
+              :type="'password'"
+              :rules="rules.password"
+              label="Confirme sua Nova Senha"
+              prepend-icon="mdi-shield-lock-outline"
+              required
+            ></v-text-field>
           </v-form>
           <v-card-actions>
             <v-row>
               <v-col>
                 <v-btn @click="submit" class="recover-password" outlined
-                  >Enviar</v-btn
+                  >Confirmar</v-btn
                 >
               </v-col>
               <v-col>
@@ -86,18 +102,12 @@ export default {
   methods: {
     submit() {
       if (this.$refs.form.validate()) {
-        this.$auth.login({
-          body: JSON.stringify(this.user),
-          success: function(response) {
-            localStorage.token = response.body.data.token;
-          },
-          error: function() {
-            delete localStorage.token;
-            this.snackbar = true;
-          },
-          rememberMe: true,
-          redirect: "/home"
-        });
+        if (this.user.password == this.passwordConfirmation) {
+          this.$emit("click");
+        } else {
+          this.text = "As senhas não estão iguais.";
+          this.snackbar = true;
+        }
       }
     }
   }
@@ -129,6 +139,7 @@ export default {
   width: 400px;
   height: 150px;
   margin: auto;
+  margin-bottom: 50px;
 
   background: linear-gradient(90deg, #006ea8 0%, #192c40 100%);
   box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.12), 0px 5px 15px rgba(0, 0, 0, 0.5);

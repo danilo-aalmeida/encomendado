@@ -40,7 +40,7 @@
           <v-card-actions>
             <v-row>
               <v-col>
-                <v-btn @click="submit" class="recover-password" outlined
+                <v-btn :to="recoverAction" class="recover-password" outlined
                   >Enviar</v-btn
                 >
               </v-col>
@@ -80,7 +80,8 @@ export default {
             "E-mail inválido!"
         ]
       },
-      abortAction: "/"
+      abortAction: "/",
+      recoverAction: "/recover-password/2"
     };
   },
   methods: {
@@ -129,6 +130,7 @@ export default {
   width: 400px;
   height: 150px;
   margin: auto;
+  margin-bottom: 50px;
 
   background: linear-gradient(90deg, #006ea8 0%, #192c40 100%);
   box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.12), 0px 5px 15px rgba(0, 0, 0, 0.5);
