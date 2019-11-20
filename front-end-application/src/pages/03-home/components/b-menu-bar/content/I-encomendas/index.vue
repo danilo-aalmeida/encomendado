@@ -14,46 +14,50 @@
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on }">
-            <v-btn class="nova-encomenda" v-on="on">Nova Encomenda</v-btn>
+            <v-btn class="nova-encomenda" v-on="on" outlined
+              >Nova Encomenda</v-btn
+            >
           </template>
           <v-card>
             <v-card-title>
               <span class="headline">{{ formTitle }}</span>
             </v-card-title>
+            <v-divider class="mx-4" inset></v-divider>
             <v-card-text>
-              <v-container>
-                <v-row>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field
-                      v-model="editedEncomenda.codigoRastreio"
-                      label="Código de Rastreio"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field
-                      v-model="editedEncomenda.name"
-                      label="Nome"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field
-                      v-model="editedEncomenda.postDate"
-                      label="Data de Postagem"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field
-                      v-model="editedEncomenda.status"
-                      label="Status"
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-              </v-container>
+              <v-col cols="12">
+                <v-text-field
+                  v-model="editedEncomenda.codigoRastreio"
+                  label="Código de Rastreio"
+                  id="codigo-rastreio"
+                  outlined
+                ></v-text-field>
+                <v-text-field
+                  v-model="editedEncomenda.name"
+                  label="Nome"
+                  id="nome-encomenda"
+                  outlined
+                ></v-text-field>
+                <v-text-field
+                  v-model="editedEncomenda.postDate"
+                  label="Data de Postagem"
+                  id="data-postagem"
+                  outlined
+                  disabled
+                ></v-text-field>
+                <v-text-field
+                  v-model="editedEncomenda.status"
+                  label="Status"
+                  id="status-encomenda"
+                  outlined
+                  disabled
+                ></v-text-field>
+              </v-col>
             </v-card-text>
             <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn text @click="close">Cancelar</v-btn>
-              <v-btn text @click="save">Salvar</v-btn>
+              <v-row :class="`justify-space-around`">
+                <v-btn text @click="save">Salvar</v-btn>
+                <v-btn text @click="close">Cancelar</v-btn>
+              </v-row>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -79,7 +83,21 @@
         </v-icon>
       </template>
       <template v-slot:expanded-item="{ headers }">
-        <td :colspan="headers.length">Histórico da Encomenda</td>
+        <td :colspan="headers.length">
+          <v-timeline>
+            <v-timeline-item
+              v-for="ocorrencia in encomendas.ocorrencias"
+              :key="ocorrencia"
+              small
+            >
+              <template v-slot:opposite>
+                <span v-text="ocorrencia.date"></span>
+                <span v-text="ocorrencia.time"></span>
+              </template>
+              <span v-text="ocorrencia.description"></span>
+            </v-timeline-item>
+          </v-timeline>
+        </td>
       </template>
       <template v-slot:no-data>
         <v-btn color="primary" @click="initialize">Reset</v-btn>
@@ -114,13 +132,13 @@ export default {
       codigoRastreio: "",
       name: "",
       postDate: "",
-      status: ""
+      status: "",
     },
     defaultEncomenda: {
       codigoRastreio: "",
       name: "",
       postDate: "",
-      status: ""
+      status: "",
     }
   }),
   computed: {
@@ -142,14 +160,126 @@ export default {
         {
           codigoRastreio: "OH6565646464",
           name: "Notebook",
-          postDate: "01/10/2019",
-          status: "Teste"
+          ocorrencias: [
+            {
+              date: "22/10/2019",
+              time: "14:16",
+              localState: "FLORIANOPOLIS / SC",
+              description: "Objeto entregue ao destinatário",
+              detail: " "
+            },
+            {
+              date: "22/10/2019",
+              time: "09:46",
+              localState: "FLORIANOPOLIS / SC",
+              description: "Objeto saiu para entrega ao destinatário",
+              detail: " "
+            },
+            {
+              date: "21/10/2019",
+              time: "09:31",
+              localState: "SAO JOSE / SC",
+              description: "Objeto encaminhado",
+              detail: " "
+            },
+            {
+              date: "18/10/2019",
+              time: "17:26",
+              localState: "CURITIBA / PR",
+              description: "Objeto encaminhado",
+              detail: " "
+            },
+            {
+              date: "18/10/2019",
+              time: "17:24",
+              localState: "CURITIBA / PR",
+              description: "Fiscalização Aduaneira finalizada",
+              detail: " "
+            },
+            {
+              date: "18/10/2019",
+              time: "12:55",
+              localState: "CURITIBA / PR",
+              description: "Objeto recebido pelos Correios do Brasil",
+              detail: " "
+            },
+            {
+              date: "11/10/2019",
+              time: "00:47",
+              localState: "null / null",
+              description: "Objeto encaminhado",
+              detail: " "
+            },
+            {
+              date: "11/10/2019",
+              time: "00:47",
+              localState: "null / null",
+              description: "Objeto postado",
+              detail: " "
+            }
+          ]
         },
         {
           codigoRastreio: "BR8949864198",
           name: "Celular",
-          postDate: "10/11/2019",
-          status: "Teste 2"
+          ocorrencias: [
+            {
+              date: "22/10/2019",
+              time: "14:16",
+              localState: "FLORIANOPOLIS / SC",
+              description: "Objeto entregue ao destinatário",
+              detail: " "
+            },
+            {
+              date: "22/10/2019",
+              time: "09:46",
+              localState: "FLORIANOPOLIS / SC",
+              description: "Objeto saiu para entrega ao destinatário",
+              detail: " "
+            },
+            {
+              date: "21/10/2019",
+              time: "09:31",
+              localState: "SAO JOSE / SC",
+              description: "Objeto encaminhado",
+              detail: " "
+            },
+            {
+              date: "18/10/2019",
+              time: "17:26",
+              localState: "CURITIBA / PR",
+              description: "Objeto encaminhado",
+              detail: " "
+            },
+            {
+              date: "18/10/2019",
+              time: "17:24",
+              localState: "CURITIBA / PR",
+              description: "Fiscalização Aduaneira finalizada",
+              detail: " "
+            },
+            {
+              date: "18/10/2019",
+              time: "12:55",
+              localState: "CURITIBA / PR",
+              description: "Objeto recebido pelos Correios do Brasil",
+              detail: " "
+            },
+            {
+              date: "11/10/2019",
+              time: "00:47",
+              localState: "null / null",
+              description: "Objeto encaminhado",
+              detail: " "
+            },
+            {
+              date: "11/10/2019",
+              time: "00:47",
+              localState: "null / null",
+              description: "Objeto postado",
+              detail: " "
+            }
+          ]
         }
       ];
     },
@@ -183,7 +313,49 @@ export default {
 </script>
 
 <style scoped>
-/* #encomenda{
-
+/* #encomenda {
+  
 } */
+
+.v-toolbar {
+  border-radius: 10px;
+}
+
+.nova-encomenda {
+  height: 40px !important;
+  width: 175px;
+
+  background: #006ea8;
+  box-shadow: 0px 2px 4px rgba(0, 110, 168, 0.25);
+  border-radius: 3px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #ffffff;
+}
+
+.v-card__text {
+  padding: 0 24px 0px !important;
+}
+
+.v-card__actions .v-btn {
+  height: 40px !important;
+  width: 150px;
+
+  background: #006ea8;
+  box-shadow: 0px 2px 4px rgba(0, 110, 168, 0.25);
+  border-radius: 3px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #ffffff;
+}
 </style>

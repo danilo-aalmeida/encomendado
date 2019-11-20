@@ -4,13 +4,12 @@
       <v-card>
         <v-navigation-drawer permanent>
           <v-list-item>
-            <v-list-item-content>
-              <v-list-item-avatar>
-                <v-img src=""></v-img>
-                <!--Imagem do Usuário-->
-              </v-list-item-avatar>
-              <v-list-item-title>Fulano de Tal</v-list-item-title>
-            </v-list-item-content>
+            <v-col>
+              <v-avatar size="62">
+                <v-img src="../../../../assets/avatar.png"></v-img>
+              </v-avatar>
+            <v-list-item-title>Fulano de Tal</v-list-item-title>
+            </v-col>
           </v-list-item>
           <v-divider></v-divider>
           <v-list dense nav>
@@ -71,14 +70,13 @@ export default {
 </script>
 
 <style scoped>
-
-#core{
+#core {
   display: flex;
+  justify-content: center;
 }
 
-#content-area{
-  min-width: 80%;
-  overflow:hidden;
+#content-area {
+  overflow: hidden;
 }
 
 #menu-bar {
@@ -90,10 +88,6 @@ export default {
   width: 255px;
   height: 100%;
   max-width: none;
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 36.02%;
 
   background: #ffffff;
   border: 1px solid rgba(63, 63, 68, 0.005);

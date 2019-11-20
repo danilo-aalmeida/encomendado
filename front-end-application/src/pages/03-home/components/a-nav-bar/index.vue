@@ -3,7 +3,7 @@
     <v-app-bar>
       <v-toolbar-title>Encomendado</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn :to="signOutAction" class="sign-out">
+      <v-btn :to="signOutAction" class="sign-out" text>
         Sair
         <v-icon>mdi-logout-variant</v-icon>
       </v-btn>
@@ -35,6 +35,16 @@ export default {
   font-weight: 300;
   font-size: 20px;
   line-height: 25px;
+
+  color: #ffffff;
+}
+
+.sign-out {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
 
   color: #ffffff;
 }

@@ -156,7 +156,6 @@ export default {
 
 .v-card__actions .sign-in,
 .v-card__actions .register {
-  width: 100px;
   height: 40px;
   width: 150px;
 
