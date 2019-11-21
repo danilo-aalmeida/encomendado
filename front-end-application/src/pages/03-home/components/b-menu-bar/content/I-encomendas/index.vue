@@ -1,6 +1,6 @@
 <template>
   <div id="encomendas">
-    <v-template>
+    <template>
       <v-toolbar flat>
         <v-toolbar-title>Encomendas</v-toolbar-title>
         <v-spacer></v-spacer>
@@ -62,7 +62,7 @@
           </v-card>
         </v-dialog>
       </v-toolbar>
-    </v-template>
+    </template>
     <v-data-table
       :headers="headers"
       :items="encomendas"
@@ -74,11 +74,11 @@
       show-expand
       class="elevation-1"
     >
-      <template v-slot:item.action="{ encomenda }">
-        <v-icon small @click="editEncomenda(encomenda)">
+      <template slot="items" slot-scope="props">
+        <v-icon small @click="editEncomenda(props.item)">
           mdi-pencil
         </v-icon>
-        <v-icon small @click="deleteEncomenda(encomenda)">
+        <v-icon small @click="deleteEncomenda(props.item)">
           mdi-delete
         </v-icon>
       </template>
@@ -86,8 +86,8 @@
         <td :colspan="headers.length">
           <v-timeline>
             <v-timeline-item
-              v-for="ocorrencia in encomendas.ocorrencias"
-              :key="ocorrencia"
+              v-for="(ocorrencia, i) in encomendas.ocorrencias"
+              :key="i"
               small
             >
               <template v-slot:opposite>
@@ -133,12 +133,14 @@ export default {
       name: "",
       postDate: "",
       status: "",
+      ocorrencias: []
     },
     defaultEncomenda: {
       codigoRastreio: "",
       name: "",
       postDate: "",
       status: "",
+      ocorrencias: []
     }
   }),
   computed: {
@@ -158,8 +160,10 @@ export default {
     initialize() {
       this.encomendas = [
         {
-          codigoRastreio: "OH6565646464",
+          codigoRastreio: "LX008580575US",
           name: "Notebook",
+          postDate: "11/10/2019",
+          status: "Objeto entregue ao destinatário",
           ocorrencias: [
             {
               date: "22/10/2019",
@@ -220,62 +224,50 @@ export default {
           ]
         },
         {
-          codigoRastreio: "BR8949864198",
+          codigoRastreio: "PU393023614BR",
           name: "Celular",
+          postDate: "17/10/2019",
+          status: "Objeto entregue ao destinatário",
           ocorrencias: [
             {
-              date: "22/10/2019",
-              time: "14:16",
-              localState: "FLORIANOPOLIS / SC",
+              date: "25/10/2019",
+              time: "17:06",
+              localState: "SAO JOSE / SC",
               description: "Objeto entregue ao destinatário",
               detail: " "
             },
             {
-              date: "22/10/2019",
-              time: "09:46",
-              localState: "FLORIANOPOLIS / SC",
+              date: "25/10/2019",
+              time: "09:33",
+              localState: "SAO JOSE / SC",
               description: "Objeto saiu para entrega ao destinatário",
               detail: " "
             },
             {
               date: "21/10/2019",
-              time: "09:31",
+              time: "13:08",
               localState: "SAO JOSE / SC",
               description: "Objeto encaminhado",
               detail: " "
             },
             {
-              date: "18/10/2019",
-              time: "17:26",
-              localState: "CURITIBA / PR",
+              date: "17/10/2019",
+              time: "20:06",
+              localState: "RIO DE JANEIRO / RJ",
               description: "Objeto encaminhado",
               detail: " "
             },
             {
-              date: "18/10/2019",
-              time: "17:24",
-              localState: "CURITIBA / PR",
-              description: "Fiscalização Aduaneira finalizada",
-              detail: " "
-            },
-            {
-              date: "18/10/2019",
-              time: "12:55",
-              localState: "CURITIBA / PR",
-              description: "Objeto recebido pelos Correios do Brasil",
-              detail: " "
-            },
-            {
-              date: "11/10/2019",
-              time: "00:47",
-              localState: "null / null",
+              date: "17/10/2019",
+              time: "14:58",
+              localState: "RIO DE JANEIRO / RJ",
               description: "Objeto encaminhado",
               detail: " "
             },
             {
-              date: "11/10/2019",
-              time: "00:47",
-              localState: "null / null",
+              date: "17/10/2019",
+              time: "11:30",
+              localState: "RIO DE JANEIRO / RJ",
               description: "Objeto postado",
               detail: " "
             }

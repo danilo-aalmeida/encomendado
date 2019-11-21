@@ -119,6 +119,7 @@ export default {
       snackbar: false,
       birthday: null,
       menu: false,
+      text: "",
       user: {
         name: "",
         birthday: "",
