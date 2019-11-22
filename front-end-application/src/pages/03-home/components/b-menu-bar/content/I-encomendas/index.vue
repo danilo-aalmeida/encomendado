@@ -74,31 +74,37 @@
       show-expand
       class="elevation-1"
     >
-      <template slot="items" slot-scope="props">
-        <v-icon small @click="editEncomenda(props.item)">
+      <template v-slot:item.action="{ item }">
+        <v-icon small @click="editEncomenda(item)">
           mdi-pencil
         </v-icon>
-        <v-icon small @click="deleteEncomenda(props.item)">
+        <v-icon small @click="deleteEncomenda(item)">
           mdi-delete
         </v-icon>
       </template>
-      <template v-slot:expanded-item="{ headers }">
-        <td :colspan="headers.length">
+
+      <template v-slot:expanded-item="{ item }">
+        <!-- <v-card> -->
           <v-timeline>
             <v-timeline-item
-              v-for="(ocorrencia, i) in encomendas.ocorrencias"
+              v-for="(ocorrencia, i) in item.ocorrencias"
               :key="i"
               small
             >
-              <template v-slot:opposite>
-                <span v-text="ocorrencia.date"></span>
-                <span v-text="ocorrencia.time"></span>
-              </template>
-              <span v-text="ocorrencia.description"></span>
+              <v-row class="pt-1">
+                <v-col cols="3">
+                  <span v-text="ocorrencia.date"></span>
+                  <span v-text="ocorrencia.time"></span>
+                </v-col>
+                <v-col>
+                  <span v-text="ocorrencia.description"></span>
+                </v-col>
+              </v-row>
             </v-timeline-item>
           </v-timeline>
-        </td>
+        <!-- </v-card> -->
       </template>
+
       <template v-slot:no-data>
         <v-btn color="primary" @click="initialize">Reset</v-btn>
       </template></v-data-table
@@ -128,6 +134,13 @@ export default {
     ],
     encomendas: [],
     editedIndex: -1,
+    encomenda: {
+      codigoRastreio: "",
+      name: "",
+      postDate: "",
+      status: "",
+      ocorrencias: []
+    },
     editedEncomenda: {
       codigoRastreio: "",
       name: "",
@@ -166,41 +179,6 @@ export default {
           status: "Objeto entregue ao destinatário",
           ocorrencias: [
             {
-              date: "22/10/2019",
-              time: "14:16",
-              localState: "FLORIANOPOLIS / SC",
-              description: "Objeto entregue ao destinatário",
-              detail: " "
-            },
-            {
-              date: "22/10/2019",
-              time: "09:46",
-              localState: "FLORIANOPOLIS / SC",
-              description: "Objeto saiu para entrega ao destinatário",
-              detail: " "
-            },
-            {
-              date: "21/10/2019",
-              time: "09:31",
-              localState: "SAO JOSE / SC",
-              description: "Objeto encaminhado",
-              detail: " "
-            },
-            {
-              date: "18/10/2019",
-              time: "17:26",
-              localState: "CURITIBA / PR",
-              description: "Objeto encaminhado",
-              detail: " "
-            },
-            {
-              date: "18/10/2019",
-              time: "17:24",
-              localState: "CURITIBA / PR",
-              description: "Fiscalização Aduaneira finalizada",
-              detail: " "
-            },
-            {
               date: "18/10/2019",
               time: "12:55",
               localState: "CURITIBA / PR",
@@ -235,47 +213,13 @@ export default {
               localState: "SAO JOSE / SC",
               description: "Objeto entregue ao destinatário",
               detail: " "
-            },
-            {
-              date: "25/10/2019",
-              time: "09:33",
-              localState: "SAO JOSE / SC",
-              description: "Objeto saiu para entrega ao destinatário",
-              detail: " "
-            },
-            {
-              date: "21/10/2019",
-              time: "13:08",
-              localState: "SAO JOSE / SC",
-              description: "Objeto encaminhado",
-              detail: " "
-            },
-            {
-              date: "17/10/2019",
-              time: "20:06",
-              localState: "RIO DE JANEIRO / RJ",
-              description: "Objeto encaminhado",
-              detail: " "
-            },
-            {
-              date: "17/10/2019",
-              time: "14:58",
-              localState: "RIO DE JANEIRO / RJ",
-              description: "Objeto encaminhado",
-              detail: " "
-            },
-            {
-              date: "17/10/2019",
-              time: "11:30",
-              localState: "RIO DE JANEIRO / RJ",
-              description: "Objeto postado",
-              detail: " "
             }
           ]
         }
       ];
     },
     editEncomenda(encomenda) {
+      console.log(encomenda);
       this.editedIndex = this.encomendas.indexOf(encomenda);
       this.editedEncomenda = Object.assign({}, encomenda);
       this.dialog = true;
