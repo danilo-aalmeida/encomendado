@@ -118,18 +118,23 @@
         >
       </div>
     </div>
+    <div>
+      <home-footer-bar />
+    </div>
   </div>
 </template>
 
 <script>
 import NavBar from "../../components/a-nav-bar";
 import MenuBar from "../../components/b-menu-bar/";
+import FooterBar from "../../components/c-footer-bar/";
 
 export default {
   name: "Home",
   components: {
     "home-nav-bar": NavBar,
-    "home-menu-bar": MenuBar
+    "home-menu-bar": MenuBar,
+    "home-footer-bar": FooterBar
   },
   data: () => ({
     search: "",
@@ -236,7 +241,6 @@ export default {
       ];
     },
     editEncomenda(encomenda) {
-      console.log(encomenda);
       this.editedIndex = this.encomendas.indexOf(encomenda);
       this.editedEncomenda = Object.assign({}, encomenda);
       this.dialog = true;

@@ -217,8 +217,6 @@ export default {
   font-weight: normal;
   font-size: 20px;
   line-height: 23px;
-  /* identical to box height */
-
   color: #ffffff;
 }
 

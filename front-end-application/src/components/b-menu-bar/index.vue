@@ -7,12 +7,19 @@
             <v-avatar size="62">
               <v-img src="../../assets/avatar.png"></v-img>
             </v-avatar>
-            <v-list-item-title>Fulano de Tal</v-list-item-title>
+            <v-row>
+              <v-list-item-title>Fulano de Tal</v-list-item-title>
+            </v-row>
           </v-col>
         </v-list-item>
         <v-divider></v-divider>
         <v-list dense nav>
-          <v-list-item v-for="item in items" :key="item.title" link>
+          <v-list-item
+            v-for="item in items"
+            :key="item.title"
+            :to="item.path"
+            link
+          >
             <v-list-item-icon>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-icon>
@@ -50,7 +57,11 @@ export default {
   data() {
     return {
       items: [
-        { title: "Encomendas", icon: "mdi-view-dashboard-outline", path: "/home" },
+        {
+          title: "Encomendas",
+          icon: "mdi-view-dashboard-outline",
+          path: "/home"
+        },
         { title: "Perfil", icon: "mdi-account-outline", path: "/profile" }
       ],
       suport: { title: "Fale Conosco", icon: "mdi-face-agent" }
@@ -60,7 +71,6 @@ export default {
 </script>
 
 <style scoped>
-
 #menu-bar {
   margin-top: 10px;
   margin-left: 10px;

@@ -5,6 +5,7 @@ import SignUp from "../pages/01-sign-up/";
 import RecoverPassword from "../pages/02-recover-password/";
 import RecoverPassword2 from "../pages/02-recover-password/token/";
 import Home from "../pages/03-encomendas/";
+import Profile from "../pages/04-profile/";
 
 Vue.use(Router);
 
@@ -37,6 +38,11 @@ const router = new Router({
       path: '/home',
       name: "Home",
       component: Home
+    },
+    {
+      path: '/profile',
+      name: "Profile",
+      component: Profile
     },
   ]
 });
