@@ -4,7 +4,7 @@ import SignIn from "../pages/00-sign-in/";
 import SignUp from "../pages/01-sign-up/";
 import RecoverPassword from "../pages/02-recover-password/";
 import RecoverPassword2 from "../pages/02-recover-password/token/";
-import Home from "../pages/03-home/";
+import Home from "../pages/03-encomendas/";
 
 Vue.use(Router);
 
