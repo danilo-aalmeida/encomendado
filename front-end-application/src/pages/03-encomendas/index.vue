@@ -128,6 +128,7 @@
 import NavBar from "../../components/a-nav-bar";
 import MenuBar from "../../components/b-menu-bar/";
 import FooterBar from "../../components/c-footer-bar/";
+import Encomenda from "../../services/encomendas"
 
 export default {
   name: "Home",
@@ -190,6 +191,11 @@ export default {
   },
   created() {
     this.initialize();
+  },
+  mounted() {
+    Encomenda.listar('LX008580575US').then(resposta => {
+      console.log(resposta)
+    })
   },
   methods: {
     initialize() {

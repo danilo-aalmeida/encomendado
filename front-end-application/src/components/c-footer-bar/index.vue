@@ -9,6 +9,7 @@
           <v-spacer></v-spacer>
           <v-btn v-for="link in links" :key="link" class="mx-4" icon>
             <v-icon size="24px">{{ link.icone }}</v-icon>
+            <router-link> {{ link.link }}</router-link>
           </v-btn>
           <v-spacer></v-spacer>
           POO3 - FEAN Faculdade Energia de Administração e Negócios - &copy;
@@ -25,8 +26,8 @@ export default {
   data() {
     return {
       links: [
-        { icone: "mdi-github-circle", nome: "GitHub", link: "" },
-        { icone: "mdi-linkedin-box", nome: "Linkedin", link: "" }
+        { icone: "mdi-github-circle", nome: "GitHub", link: "https://github.com/danilo-aalmeida/encomendado" },
+        { icone: "mdi-linkedin-box", nome: "Linkedin", link: "https://www.linkedin.com/in/daniloaalmeida/" }
       ],
       about: { nome: "Sobre", link: "" }
     };
